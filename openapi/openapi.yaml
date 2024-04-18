@@ -37,7 +37,7 @@ tags:
 x-tagGroups:
   - name: General
     tags:
-      - User
+      - Customer
       - Info
       - Echo
   - name: Administration
