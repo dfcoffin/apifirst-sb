@@ -21,19 +21,19 @@ info:
 
     guesswork in calling the service.
 externalDocs:
-  description: "Find out how to create a GitHub repo for your OpenAPI definition."
+  description: 'Find out how to create a GitHub repo for your OpenAPI definition.'
   url: 'https://github.com/Redocly/create-openapi-repo'
 tags:
   - name: Customer
     description: Customer operations
   - name: User
-    description: "Example actions on user accounts."
+    description: 'Example actions on user accounts.'
 #   - name: Admin
-#     description: "Example operations reserved for administrators."
+#     description: 'Example operations reserved for administrators.'
 #   - name: Info
-#     description: "Example operations for retrieving information."
+#     description: 'Example operations for retrieving information.'
 #   - name: Tag
-#     description: "This is a tag description."
+#     description: 'This is a tag description.'
 x-tagGroups:
   - name: General
     tags:
@@ -59,6 +59,8 @@ paths:
     $ref: 'paths/user-status.yaml'
   '/v1/customers':
     $ref: 'paths/v1/customers.yaml'
+  '/v1/customers/{customer_id}':
+    $ref: paths/v1/customers_{customer_id}.yaml
   # /pathItem:
   #   $ref: paths/pathItem.yaml
   # /pathItemWithExamples:
@@ -70,7 +72,7 @@ security:
 components:
   securitySchemes:
     main_auth:
-      description: "Example description text of the OAuth2 scheme."
+      description: 'Example description text of the OAuth2 scheme.'
       type: oauth2
       flows:
         implicit:
@@ -79,7 +81,7 @@ components:
             'read:users': read user info
             'write:users': modify or remove users
     api_key:
-      description: "Example description text of the API key scheme."
+      description: 'Example description text of the API key scheme.'
       type: apiKey
       in: header
       name: api_key
@@ -90,7 +92,7 @@ webhooks:
   userInfo:
     post:
       summary: New user webhook
-      description: "Information about a new user in the system."
+      description: 'Information about a new user in the system.'
       operationId: userInfo
       tags:
         - Info
@@ -101,6 +103,6 @@ webhooks:
               $ref: 'components/schemas/User.yaml'
       responses:
         '200':
-          description: "Successfully retrieved information about a new user."
+          description: 'Successfully retrieved information about a new user.'
       security:
         - api_key: []
