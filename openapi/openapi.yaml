@@ -4,8 +4,7 @@ info:
   title: API First with Spring Boot
   termsOfService: https://example.com/terms/
   contact:
-    name: Contact our support
-    email: donald.coffin@reminetworks.com
+    email: john@springframework.guru
     url: http://springframework.guru/contact
   license:
     name: Apache 2.0
@@ -26,6 +25,8 @@ externalDocs:
 tags:
   - name: Customer
     description: Customer operations
+  - name: Products
+    description: Product operations    
   - name: User
     description: 'Example actions on user accounts.'
 #   - name: Admin
@@ -38,7 +39,8 @@ x-tagGroups:
   - name: General
     tags:
       - Customer
-      - Info
+      - Product
+      # - Info
       - Echo
   - name: Administration
     tags:
@@ -61,6 +63,10 @@ paths:
     $ref: 'paths/v1/customers.yaml'
   '/v1/customers/{customer_id}':
     $ref: paths/v1/customers_{customer_id}.yaml
+  '/v1/products':
+    $ref: 'paths/v1/products.yaml'
+  '/v1/products/{product_id}':
+    $ref: paths/v1/products_{product_id}.yaml
   # /pathItem:
   #   $ref: paths/pathItem.yaml
   # /pathItemWithExamples:
