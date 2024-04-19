@@ -12,13 +12,7 @@ properties:
       $ref: address.yaml
     email:
       type: string
-      minLength: 3      
-      maxLength: 255
     phone:
       type: string
-      minLength: 10      
-      maxLength: 15
-    paymentMethods:
-      type: array
-      items: 
-        $ref: payment_method.yaml     
+    selectedPaymentMethod:
+      $ref: payment_method.yaml
