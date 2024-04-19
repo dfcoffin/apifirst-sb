@@ -14,10 +14,12 @@ properties:
       type: string
       minLength: 3      
       maxLength: 255
+      example: 'john@springframework.guru'
     phone:
       type: string
       minLength: 10      
       maxLength: 15
+      example: '(800) 555-1212'
     paymentMethods:
       type: array
       items: 
