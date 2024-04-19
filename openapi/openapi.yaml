@@ -15,10 +15,6 @@ info:
   description: >
     This is an **example** API to demonstrate features of the OpenAPI
     specification.
-
-    # Introduction
-
-    guesswork in calling the service.
 externalDocs:
   description: 'Find out how to create a GitHub repo for your OpenAPI definition.'
   url: 'https://github.com/Redocly/create-openapi-repo'
@@ -26,21 +22,15 @@ tags:
   - name: Customer
     description: Customer operations
   - name: Products
-    description: Product operations    
-  - name: User
-    description: 'Example actions on user accounts.'
-#   - name: Admin
-#     description: 'Example operations reserved for administrators.'
-#   - name: Info
-#     description: 'Example operations for retrieving information.'
-#   - name: Tag
-#     description: 'This is a tag description.'
+    description: Product operations
+  - name: Order
+    description: Operations about orders    
 x-tagGroups:
   - name: General
     tags:
       - Customer
       - Product
-      # - Info
+      - Order
       - Echo
   - name: Administration
     tags:
@@ -53,20 +43,18 @@ servers:
         description: Your tenant id
   - url: https://springframework.guru/api/v1
 paths:
-  '/users/{username}':
-    $ref: 'paths/users_{username}.yaml'
-  '/user':
-    $ref: 'paths/user.yaml'
-  '/user/list':
-    $ref: 'paths/user-status.yaml'
   '/v1/customers':
     $ref: 'paths/v1/customers.yaml'
-  '/v1/customers/{customer_id}':
-    $ref: paths/v1/customers_{customer_id}.yaml
+  '/v1/customers/{customerId}':
+    $ref: paths/v1/customers_{customerId}.yaml
   '/v1/products':
     $ref: 'paths/v1/products.yaml'
-  '/v1/products/{product_id}':
-    $ref: paths/v1/products_{product_id}.yaml
+  '/v1/products/{productId}':
+    $ref: paths/v1/products_{productId}.yaml
+  '/v1/orders':
+    $ref: paths/v1/orders.yaml
+  '/v1/orders/{orderId}':
+    $ref: paths/v1/orders_{orderId}.yaml
   # /pathItem:
   #   $ref: paths/pathItem.yaml
   # /pathItemWithExamples:
@@ -94,21 +82,3 @@ components:
     basic_auth:
       type: http
       scheme: basic
-webhooks:
-  userInfo:
-    post:
-      summary: New user webhook
-      description: 'Information about a new user in the system.'
-      operationId: userInfo
-      tags:
-        - Info
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: 'components/schemas/User.yaml'
-      responses:
-        '200':
-          description: 'Successfully retrieved information about a new user.'
-      security:
-        - api_key: []
