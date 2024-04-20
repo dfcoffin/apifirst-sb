@@ -22,6 +22,7 @@ post:
     -  Customer
   summary: "Create a new customer"
   description: "Create a new customer"
+  operationId: createCustomer
   requestBody: 
     content: 
       application/json: 
