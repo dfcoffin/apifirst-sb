@@ -12,12 +12,14 @@ properties:
     billToAddress:
       $ref: address.yaml
     email:
-      type: string
+      type: [string, 'null']
       minLength: 3      
       maxLength: 255
       example: 'john@springframework.guru'
     phone:
-      type: string
+      type:
+        - string
+        - 'null'
       minLength: 10      
       maxLength: 15
       example: '(800) 555-1212'
@@ -25,6 +27,14 @@ properties:
       type: array
       items: 
         $ref: payment_method.yaml
+    dateCreated:
+      type: string
+      format: date-time
+      readOnly: true
+    dateUpdated:
+      type: string
+      format: date-time
+      readOnly: true
 required: 
   - name
   - shipToAddress
