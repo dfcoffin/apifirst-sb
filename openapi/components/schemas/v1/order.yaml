@@ -4,13 +4,18 @@ properties:
     type: string
     format: uuid
     description: 'The unique identifier of the order'
+    readOnly: true
   customer:
     $ref: order_customer.yaml 
   orderStatus:
     type: string
-    description: 'The status of the order'
+    enum: ['NEW', 'HOLD', 'SHIPPED', 'DELIVERED', 'CLOSED']
+    default: 'NEW'
   shipmentInfo:
     type: string
+    minLength: 1      
+    maxLength: 255
+    example: 'Shipped via UPS'
   orderLines:
     type: array
     items:
@@ -20,7 +25,13 @@ properties:
     type: string
     format: date-time
     description: 'The date and time the order was created'
+    readOnly: true
   dateUpdated:
     type: string
     format: date-time
     description: 'The date and time the order was last updated'
+    readOnly: true
+required:
+  - customer
+  - orderStatus
+  - orderLines

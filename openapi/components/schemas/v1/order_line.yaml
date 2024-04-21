@@ -4,6 +4,7 @@ properties:
     type: string
     format: uuid
     description: The unique identifier of the corder line
+    readOnly: true
   product:
     $ref: order_product.yaml
   order_quantity: 
@@ -16,7 +17,12 @@ properties:
     type: string
     format: date-time
     description: The date the order line was created
+    readOnly: true
   dateUpdated:
     type: string
     format: date-time
-    description: The date the order line was updated   
+    description: The date the order line was updated
+    readOnly: true
+required:
+  - product
+  - order_quantity
