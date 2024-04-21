@@ -3,17 +3,28 @@ properties:
   id: 
     type: string
     format: uuid
-    description: "Unique identifier of the image"
+    description: 'Unique identifier of the image'
+    readOnly: true
   url:
     type: string
-    description: "The URL of the image"
+    format: uri
+    description: 'The URL of the image'
+    minLength: 5      
+    maxLength: 500
+    example: 'https://springframework.guru/wp-content/uploads/2019/08/spring-framework-guru-logo.png'    
   altText:
-      type: string   
+      type: [string, 'null']
+      minLength: 3      
+      maxLength: 255
   dateCreated:
       type: string
       format: date-time
       description: The date the image was created
+      readOnly: true
   dateUpdated:
       type: string
       format: date-time
-      description: The date the image was updated      
+      description: The date the image was updated
+      readOnly: true
+required:
+  - url
