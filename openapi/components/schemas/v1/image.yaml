@@ -7,7 +7,7 @@ properties:
     readOnly: true
   url:
     type: string
-    format: uri
+    format: url
     description: 'The URL of the image'
     minLength: 5      
     maxLength: 500
