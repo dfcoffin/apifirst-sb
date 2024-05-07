@@ -25,16 +25,6 @@ tags:
     description: Product operations
   - name: Order
     description: Operations about orders    
-x-tagGroups:
-  - name: General
-    tags:
-      - Customer
-      - Product
-      - Order
-      - Echo
-  - name: Administration
-    tags:
-      - Admin
 servers:
   - url: https://{tenant}/api/v1
     variables:
@@ -55,12 +45,6 @@ paths:
     $ref: paths/v1/orders.yaml
   '/v1/orders/{orderId}':
     $ref: paths/v1/orders_{orderId}.yaml
-  # /pathItem:
-  #   $ref: paths/pathItem.yaml
-  # /pathItemWithExamples:
-  #   $ref: paths/pathItemWithExamples.yaml
-  # '/echo':
-  #   $ref: 'paths/echo.yaml'
 security:
   - basic_auth: []
 components:

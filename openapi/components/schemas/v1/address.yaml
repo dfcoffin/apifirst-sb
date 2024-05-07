@@ -13,10 +13,10 @@ properties:
     example: '123 Main St.'
   addressLine2: 
     type: string
-    nullable: true
     description: Address Line 2    
     minLength: 3
     maxLength: 100
+    nullable: true
   city:
     type: string
     description: City

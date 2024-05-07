@@ -13,16 +13,16 @@ properties:
       $ref: address.yaml
     email:
       type: string
-      nullable: true
       minLength: 3      
       maxLength: 255
       example: 'john@springframework.guru'
+      nullable: true
     phone:
       type: string
-      nullable: true
       minLength: 10      
       maxLength: 15
       example: '(800) 555-1212'
+      nullable: true
     paymentMethods:
       type: array
       items: 
