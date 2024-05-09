@@ -1,6 +1,6 @@
 get: 
   tags: 
-    -  Product
+    -  Products
   summary: "Get a list of products"
   description: Returns a list of products.
   operationId: listProducts
@@ -17,3 +17,28 @@ get:
         application/json: 
           schema: 
             $ref: ../../components/schemas/Problem.yaml
+post: 
+  tags: 
+    - Products
+  summary: "Create a new product"
+  operationId: createProduct
+  requestBody: 
+    content: 
+      application/json: 
+        schema: 
+          $ref: ../../components/schemas/v1/product.yaml
+  responses: 
+    '201': 
+      description: "Created"
+      headers: 
+        Location: 
+          description: "The location of the new product"
+          schema: 
+            type: "string"
+            example: /v1/products/27ca5995-f6e1-46bb-8f18-52458b7ed96e
+    '400': 
+      description: "Bad Request"
+      content: 
+        application/json: 
+          schema: 
+            $ref: ../../components/schemas/Problem.yaml              
